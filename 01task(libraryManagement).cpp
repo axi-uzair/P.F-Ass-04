@@ -97,7 +97,7 @@ void displayBooks(book details[], int booksnum) {
 }
 
 void saveToFile(book details[], int booksnum, const string &filename) {
-    ofstream outFile(filename);
+    ofstream outFile(filename, ios::out);
     if (outFile.is_open()) {
         for (int i = 0; i < booksnum; i++) {
             outFile << details[i].BookID << "\t" << details[i].title << "\t" << details[i].author << "\t" << details[i].quantity << endl;
@@ -110,7 +110,7 @@ void saveToFile(book details[], int booksnum, const string &filename) {
 }
 
 void loadFromFile(book details[], int &booksnum, const string &filename) {
-    ifstream inFile(filename);
+    ifstream inFile(filename, ios::in);
     if (inFile.is_open()) {
         while (inFile >> details[booksnum].BookID) {
             inFile.ignore();
