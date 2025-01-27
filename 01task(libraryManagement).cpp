@@ -110,7 +110,7 @@ void saveToFile(book details[], int booksnum, const string &filename) {
 }
 
 void loadFromFile(book details[], int &booksnum, const string &filename) {
-    ifstream inFile(filename, ios::in);
+    ifstream inFile(filename);
     if (inFile.is_open()) {
         while (inFile >> details[booksnum].BookID) {
             inFile.ignore();
